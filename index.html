@@ -31,14 +31,17 @@
   width:100% !important;
 }
 
-.intersect-corner-logo,
+..intersect-corner-logo,
 .future-makers-logo{
   width:25mm !important;
   height:25mm !important;
   object-fit:contain !important;
+  object-position:center !important;
   position:static !important;
   transform:none !important;
   background:transparent !important;
+  border-radius:50%;
+clip-path:circle(...)!important;
 }
 
 .intersect-corner-logo{
@@ -60,9 +63,7 @@
 <div class="toolbar"><button onclick="printAll()">Print / Save PDF</button><button onclick="resetTemplate()">Reset text</button><span>Click recipient name, institution, title/role and certificate ID to edit. Exact institutional logos load from the official NIS, HiGA and Lucky websites.</span></div>
 
 <section class="certificate" id="oral">
-  <img src="./future-makers-2-logo.png"
-     class="future-makers-logo"
-     alt="Future Makers 2.0">
+  
   <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
   <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
   <div class="watermark-mark">INTERSECT</div>
