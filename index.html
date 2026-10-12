@@ -17,12 +17,26 @@
 .conference-meta{text-align:left;max-width:125mm}.conference-meta div{font:800 15pt Arial,sans-serif;letter-spacing:1.6px;color:var(--burg)}.conference-meta span{display:block;font:8.6pt Arial,sans-serif;letter-spacing:.18px;color:#544641;margin-top:2mm}.conference-meta em{display:block;margin-top:1.5mm;color:#9b7b3d;font-size:8.5pt;letter-spacing:.7px}
 .content{text-align:center;position:relative;z-index:3;padding:1mm 16mm 0}.eyebrow{font:700 8.7pt Arial,sans-serif;letter-spacing:2.35px;color:var(--gold);text-transform:uppercase;margin-top:0}.content h1{margin:1.6mm 0 0;color:var(--burg);font-size:28pt;line-height:1.0;letter-spacing:1.1px;font-weight:600}.rule{display:flex;align-items:center;justify-content:center;gap:3mm;width:125mm;margin:3mm auto 2.2mm;color:var(--gold)}.rule span{height:.5px;background:var(--gold);flex:1}.rule b{font-size:7pt}.presented{font-size:9.5pt;font-style:italic;color:#685a54;margin-top:1.5mm}.recipient{font-size:25pt;line-height:1.1;color:var(--ink);margin-top:2mm;font-weight:600;letter-spacing:.2px;min-height:11mm}.institution{font:italic 9.8pt Georgia,serif;color:#77685f;margin-top:.8mm;letter-spacing:.25px;min-height:4mm}.recognition{max-width:205mm;margin:5mm auto 0;font-size:10.5pt;line-height:1.62;color:#453934}.recognition span,.recognition strong{display:block}.recognition strong{margin:1.3mm auto;color:var(--burg);font-size:13pt;line-height:1.35;font-weight:600;font-style:italic}.eventline{margin-top:3.8mm;font:700 7.8pt Arial,sans-serif;color:#8d713d;letter-spacing:.8px;text-transform:uppercase}
 .footer{position:absolute;left:28mm;right:28mm;bottom:15mm;display:grid;grid-template-columns:1fr .7fr 1fr;align-items:end;gap:13mm;z-index:3}.signature{text-align:center}.sigline{width:52mm;border-top:.7px solid #776050;margin:0 auto 2mm}.signame{font-size:10.5pt;font-weight:700;color:var(--burg)}.sigtitle{font:7.6pt Arial,sans-serif;color:#5f5550;margin-top:1mm;letter-spacing:.35px}.seal{text-align:center;color:var(--gold)}.sealmark{font-size:18pt;line-height:1}.certid{font:6.6pt Arial,sans-serif;color:#9b8c7d;letter-spacing:.55px;margin-top:1mm}.editable{outline:none;border-radius:2px}.editable:focus{box-shadow:0 0 0 1px #c89b4a55;background:#fff8df80}
-@media print{html,body{background:#fff}.toolbar{display:none!important}.certificate{margin:0;box-shadow:none}.editable:focus{box-shadow:none;background:transparent}}
+
+  .future-makers-logo{
+  position:absolute;
+  top:10mm;
+  left:10mm;
+  width:27mm;
+  height:auto;
+  object-fit:contain;
+  z-index:20;
+    
+}
+}@media print{html,body{background:#fff}.toolbar{display:none!important}.certificate{margin:0;box-shadow:none}.editable:focus{box-shadow:none;background:transparent}}
 @page{size:A4 landscape;margin:0}
 </style></head><body>
 <div class="toolbar"><button onclick="printAll()">Print / Save PDF</button><button onclick="resetTemplate()">Reset text</button><span>Click recipient name, institution, title/role and certificate ID to edit. Exact institutional logos load from the official NIS, HiGA and Lucky websites.</span></div>
 
 <section class="certificate" id="oral">
+  <img src="./future-makers-2-logo.png"
+     class="future-makers-logo"
+     alt="Future Makers 2.0">
   <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
   <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
   <div class="watermark-mark">INTERSECT</div>
@@ -361,4 +375,13 @@
 <script>
 function printAll(){window.print()}
 function resetTemplate(){location.reload()}
+</script>
+<script>
+document.querySelectorAll('.certificate').forEach(function(cert){
+  const logo = document.createElement('img');
+  logo.src = './future-makers-2-logo.png';
+  logo.alt = 'Future Makers 2.0';
+  logo.className = 'future-makers-logo';
+  cert.appendChild(logo);
+});
 </script></body></html>
