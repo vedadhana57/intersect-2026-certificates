@@ -1,0 +1,380 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>INTERSECT I 2026 - Certificate Master System</title><style>
+:root{--burg:#9d0d18;--burg2:#6e0710;--gold:#c89b4a;--gold2:#e2c47f;--ink:#2c211e;--ivory:#fbf8f1;--muted:#6b625c}
+*{box-sizing:border-box} html,body{margin:0;background:#e9e6df;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
+.toolbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;padding:10px 16px;background:#201817;color:#fff;font-family:Arial,sans-serif;box-shadow:0 2px 8px #0003}
+.toolbar button{border:0;border-radius:6px;padding:8px 12px;background:#f2e6cc;color:#3b2d29;font-weight:700;cursor:pointer}.toolbar span{opacity:.85;font-size:13px}
+.certificate{position:relative;width:297mm;height:210mm;margin:14px auto;background:radial-gradient(circle at 50% 34%,#fff 0,#fffdf8 44%,var(--ivory) 100%);overflow:hidden;page-break-after:always;box-shadow:0 6px 28px #0002;padding:12mm 17mm 10mm}
+.frame{position:absolute;pointer-events:none}.frame-outer{inset:5.5mm;border:1.3px solid var(--gold)}.frame-inner{inset:8.2mm;border:0.6px solid #d8c398}
+.certificate:before,.certificate:after{content:'';position:absolute;top:9.7mm;bottom:9.7mm;width:2.2mm;background:linear-gradient(var(--burg),var(--gold),var(--burg));opacity:.92}.certificate:before{left:8.8mm}.certificate:after{right:8.8mm}
+.corner{position:absolute;width:24mm;height:24mm;opacity:.95}.corner:before,.corner:after{content:'';position:absolute;background:var(--gold)}
+.corner:before{width:100%;height:1px;top:4mm;left:0}.corner:after{height:100%;width:1px;left:4mm;top:0}
+.c1{left:7mm;top:7mm}.c2{right:7mm;top:7mm;transform:scaleX(-1)}.c3{left:7mm;bottom:7mm;transform:scaleY(-1)}.c4{right:7mm;bottom:7mm;transform:scale(-1)}
+.corner{background:linear-gradient(135deg,transparent 0 43%,rgba(157,13,24,.10) 44% 51%,transparent 52%),radial-gradient(circle at 5mm 5mm,var(--burg) 0 1.25mm,transparent 1.3mm)}
+.watermark-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);font:700 72pt Arial,sans-serif;letter-spacing:8px;color:rgba(157,13,24,.024);white-space:nowrap;pointer-events:none}
+.partner-row{height:17mm;display:grid;grid-template-columns:1fr 1.35fr 1fr;align-items:center;gap:13mm;position:relative;z-index:3;padding:0 3mm;border-bottom:0.5px solid #dccaa5}
+.partner{height:12mm;display:flex;align-items:center;justify-content:center}.partner img{display:block;max-width:100%;max-height:100%;object-fit:contain}.partner-nis img{max-height:11.5mm}.partner-higa img{max-height:10mm}.partner-lucky img{max-height:12mm}
+.conference-brand{height:33mm;display:grid;grid-template-columns:30mm minmax(0,1fr) 30mm;align-items:center;gap:8mm;padding:3mm 22mm 0;position:relative;z-index:2;width:100%}.conference-brand>img{width:25mm;height:25mm;object-fit:contain;object-position:center;display:block;border-radius:0;clip-path:none;background:transparent}.intersect-corner-logo{justify-self:start}.future-makers-logo{justify-self:end}
+.conference-meta{text-align:center;max-width:none;width:100%}.conference-meta div{font:800 15pt Arial,sans-serif;letter-spacing:1.6px;color:var(--burg)}.conference-meta span{display:block;font:8.6pt Arial,sans-serif;letter-spacing:.18px;color:#544641;margin-top:2mm}.conference-meta em{display:block;margin-top:1.5mm;color:#9b7b3d;font-size:8.5pt;letter-spacing:.7px}
+.content{text-align:center;position:relative;z-index:3;padding:1mm 16mm 0}.eyebrow{font:700 8.7pt Arial,sans-serif;letter-spacing:2.35px;color:var(--gold);text-transform:uppercase;margin-top:0}.content h1{margin:1.6mm 0 0;color:var(--burg);font-size:28pt;line-height:1.0;letter-spacing:1.1px;font-weight:600}.rule{display:flex;align-items:center;justify-content:center;gap:3mm;width:125mm;margin:3mm auto 2.2mm;color:var(--gold)}.rule span{height:.5px;background:var(--gold);flex:1}.rule b{font-size:7pt}.presented{font-size:9.5pt;font-style:italic;color:#685a54;margin-top:1.5mm}.recipient{font-size:25pt;line-height:1.1;color:var(--ink);margin-top:2mm;font-weight:600;letter-spacing:.2px;min-height:11mm}.institution{font:italic 9.8pt Georgia,serif;color:#77685f;margin-top:.8mm;letter-spacing:.25px;min-height:4mm}.recognition{max-width:205mm;margin:5mm auto 0;font-size:10.5pt;line-height:1.62;color:#453934}.recognition span,.recognition strong{display:block}.recognition strong{margin:1.3mm auto;color:var(--burg);font-size:13pt;line-height:1.35;font-weight:600;font-style:italic}.eventline{margin-top:3.8mm;font:700 7.8pt Arial,sans-serif;color:#8d713d;letter-spacing:.8px;text-transform:uppercase}
+.footer{position:absolute;left:28mm;right:28mm;bottom:15mm;display:grid;grid-template-columns:1fr .7fr 1fr;align-items:end;gap:13mm;z-index:3}.signature{text-align:center}.sigline{width:52mm;border-top:.7px solid #776050;margin:0 auto 2mm}.signame{font-size:10.5pt;font-weight:700;color:var(--burg)}.sigtitle{font:7.6pt Arial,sans-serif;color:#5f5550;margin-top:1mm;letter-spacing:.35px}.seal{text-align:center;color:var(--gold)}.sealmark{font-size:18pt;line-height:1}.certid{font:6.6pt Arial,sans-serif;color:#9b8c7d;letter-spacing:.55px;margin-top:1mm}.editable{outline:none;border-radius:2px}.editable:focus{box-shadow:0 0 0 1px #c89b4a55;background:#fff8df80}
+
+  @media print{html,body{background:#fff}.toolbar{display:none!important}.certificate{margin:0;box-shadow:none}.editable:focus{box-shadow:none;background:transparent}}
+@page{size:A4 landscape;margin:0}
+</style></head><body>
+<div class="toolbar"><button onclick="printAll()">Print / Save PDF</button><button onclick="resetTemplate()">Reset text</button><span>Click recipient name, institution, title/role and certificate ID to edit. Exact institutional logos load from the official NIS, HiGA and Lucky websites.</span></div>
+
+<section class="certificate" id="oral">
+<div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">ORAL RESEARCH PRESENTATION</div>
+    <h1>CERTIFICATE OF PRESENTATION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>for the successful presentation of the research paper</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">“Title of Research Paper”</strong>
+      <span>at INTERSECT I - Kazakhstan 2026, an international student conference on Research, Innovation, Leadership, Heritage & Cultural Exchange.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/OR/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="poster">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">ACADEMIC POSTER PRESENTATION</div>
+    <h1>CERTIFICATE OF PRESENTATION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>for the successful presentation of the academic poster</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">“Title of Academic Poster”</strong>
+      <span>at INTERSECT I - Kazakhstan 2026, an international student conference on Research, Innovation, Leadership, Heritage & Cultural Exchange.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/PO/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="project">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">INNOVATION & IMPACT PROJECT</div>
+    <h1>CERTIFICATE OF PRESENTATION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>for presenting the Innovation & Impact Project</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">“Title of Innovation & Impact Project”</strong>
+      <span>at INTERSECT I - Kazakhstan 2026, an international student conference on Research, Innovation, Leadership, Heritage & Cultural Exchange.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/IP/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="roundtable">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">INTERNATIONAL ROUNDTABLE DISCUSSION</div>
+    <h1>CERTIFICATE OF PARTICIPATION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>in recognition of thoughtful participation and meaningful contribution to the international roundtable</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">“Roundtable Theme”</strong>
+      <span>at INTERSECT I - Kazakhstan 2026, contributing perspectives, dialogue and collaborative thinking across schools and cultures.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/RT/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="teacher">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">MASTERCLASS / WORKSHOP FACILITATOR</div>
+    <h1>CERTIFICATE OF PROFESSIONAL CONTRIBUTION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>in recognition of professional contribution through the facilitation of the masterclass / workshop</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">“Masterclass / Workshop Title”</strong>
+      <span>at INTERSECT I - Kazakhstan 2026, enriching professional and student learning through expertise, dialogue and practice.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/MC/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="student-council">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">STUDENT COUNCIL - CONFERENCE DELIVERY TEAM</div>
+    <h1>CERTIFICATE OF LEADERSHIP & SERVICE</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>in recognition of exceptional student leadership, responsibility and service as a member of the</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">Conference Team / Role</strong>
+      <span>supporting the planning and successful delivery of INTERSECT I - Kazakhstan 2026.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/SC/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<section class="certificate" id="organising">
+  <div class="frame frame-outer"></div><div class="frame frame-inner"></div>
+  <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+  <div class="watermark-mark">INTERSECT</div>
+  <header class="partner-row">
+    <div class="partner partner-nis"><img src="https://www.nis.edu.kz/img/logo.png" alt="Nazarbayev Intellectual Schools"></div>
+    <div class="partner partner-higa"><img src="https://higa-s.jp/wp-content/themes/school-time/assets/img/higa-logo-senior.png" alt="Hiroshima Global Academy"></div>
+    <div class="partner partner-lucky"><img src="https://www.luckyinternationalschool.org/images/logo.png" alt="Lucky International School"></div>
+  </header>
+  <div class="conference-brand">
+    <img src="./intersect-logo.jpeg" class="intersect-corner-logo" alt="INTERSECT Conference 2026">
+    <div class="conference-meta">
+      <div>INTERSECT I - KAZAKHSTAN 2026</div>
+      <span>International Student Conference on Research, Innovation, Leadership, Heritage & Cultural Exchange</span>
+      <em>Theme: Future in Our Hands</em>
+    </div>
+  
+    <img src="./future-makers-2-logo.png" class="future-makers-logo" alt="Future Makers 2.0">
+  </div>
+  <main class="content">
+    <div class="eyebrow">ORGANISING COMMITTEE</div>
+    <h1>CERTIFICATE OF APPRECIATION</h1>
+    <div class="rule"><span></span><b>◆</b><span></span></div>
+    <div class="presented">This certificate is proudly presented to</div>
+    <div class="recipient editable" contenteditable="true" spellcheck="false">Recipient Name</div>
+    <div class="institution editable" contenteditable="true" spellcheck="false">School / Institution, Country</div>
+    <div class="recognition">
+      <span>in appreciation of outstanding professional contribution, commitment and service as a member of the</span>
+      <strong class="editable work" contenteditable="true" spellcheck="false">Organising Committee / Role</strong>
+      <span>for the planning and successful delivery of INTERSECT I - Kazakhstan 2026.</span>
+    </div>
+    <div class="eventline">28-30 October 2026 · Nazarbayev Intellectual School, Shymkent, Karatau, Kazakhstan</div>
+  </main>
+  <footer class="footer">
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Laura Baytokaeva</div>
+      <div class="sigtitle">Conference Chair</div>
+    </div>
+    <div class="seal">
+      <div class="sealmark">✦</div>
+      <div class="certid editable" contenteditable="true" spellcheck="false">INTERSECT-I/2026/OC/001</div>
+    </div>
+    <div class="signature">
+      <div class="sigline"></div>
+      <div class="signame">Chandan Pal Singh</div>
+      <div class="sigtitle">Conference Director</div>
+    </div>
+  </footer>
+</section>
+<script>
+function printAll(){window.print()}
+function resetTemplate(){location.reload()}
+</script>
+</body></html>
